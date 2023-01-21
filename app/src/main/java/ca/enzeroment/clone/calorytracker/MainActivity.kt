@@ -10,6 +10,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import ca.enzeroment.clone.calorytracker.core.navigation.Route
+import ca.enzeroment.clone.calorytracker.navigation.navigate
+import ca.enzeroment.clone.calorytracker.onboarding.presentation.welcome.WelcomeScreen
 import ca.enzeroment.clone.calorytracker.ui.theme.CaloryTrackerCloneTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,27 +23,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CaloryTrackerCloneTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = Route.WELCOME
                 ) {
-                    Greeting("Android")
+                    composable(Route.WELCOME){
+                        WelcomeScreen(onNavigate = navController::navigate)
+                    }
+
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    CaloryTrackerCloneTheme {
-        Greeting("Android")
     }
 }

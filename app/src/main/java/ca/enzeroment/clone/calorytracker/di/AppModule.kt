@@ -5,6 +5,7 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import ca.enzeroment.clone.calorytracker.core.data.preferences.DefaultPreferences
 import ca.enzeroment.clone.calorytracker.core.domain.preferences.Preferences
+import ca.enzeroment.clone.calorytracker.core.domain.usecase.FilterOutDigits
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,5 +34,11 @@ object AppModule {
         sharedPreferences: SharedPreferences
     ) : Preferences {
         return DefaultPreferences(sharedPreferences)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFilterOutDigitUseCase() : FilterOutDigits {
+        return FilterOutDigits()
     }
 }

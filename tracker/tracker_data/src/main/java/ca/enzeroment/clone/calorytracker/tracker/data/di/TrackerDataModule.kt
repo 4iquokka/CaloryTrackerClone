@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.room.Room
 import ca.enzeroment.clone.calorytracker.tracker.data.local.TrackerDatabase
 import ca.enzeroment.clone.calorytracker.tracker.data.remote.OpenFoodApi
+import ca.enzeroment.clone.calorytracker.tracker.data.repository.TrackerRepositoryImpl
+import ca.enzeroment.clone.calorytracker.tracker.domain.repository.TrackerRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -50,6 +52,18 @@ object TrackerDataModule {
             TrackerDatabase::class.java,
             "tracker_db"
         ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTrackerRepository(
+        api : OpenFoodApi,
+        db : TrackerDatabase // Not getting dao itself for the test purposes. Can put memorydb easily during the test
+    ) : TrackerRepository {
+        return TrackerRepositoryImpl(
+            dao = db.dao,
+            api = api
+        )
     }
 
 }

@@ -6,7 +6,8 @@ import ca.enzeroment.clone.calorytracker.tracker.data.local.entity.TrackedFoodEn
 
 @Database(
     entities = [TrackedFoodEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class TrackerDatabase : RoomDatabase() {
 

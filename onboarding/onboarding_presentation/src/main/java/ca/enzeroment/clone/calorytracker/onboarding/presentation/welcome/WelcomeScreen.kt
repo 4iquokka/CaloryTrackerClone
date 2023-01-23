@@ -21,7 +21,6 @@ fun WelcomeScreen(
     // It removes the testablility a little bit providing mock navController
     onNavigate: (UiEvent.Navigate) -> Unit
 ) {
-    val context = LocalContext.current
     val spacing = LocalSpacing.current
     Column(
         modifier = Modifier

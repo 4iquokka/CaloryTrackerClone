@@ -1,5 +1,8 @@
 package ca.enzeroment.clone.calorytracker.tracker.data.di
 
+import android.app.Application
+import androidx.room.Room
+import ca.enzeroment.clone.calorytracker.tracker.data.local.TrackerDatabase
 import ca.enzeroment.clone.calorytracker.tracker.data.remote.OpenFoodApi
 import dagger.Module
 import dagger.Provides
@@ -35,6 +38,18 @@ object TrackerDataModule {
             .client(client)
             .build()
             .create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTrackerDatabase(
+        app : Application
+    ) : TrackerDatabase {
+        return Room.databaseBuilder(
+            app,
+            TrackerDatabase::class.java,
+            "tracker_db"
+        ).build()
     }
 
 }

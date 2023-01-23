@@ -12,8 +12,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import ca.enzeroment.clone.calorytracker.core.navigation.Route
 import ca.enzeroment.clone.calorytracker.navigation.navigate
+import ca.enzeroment.clone.calorytracker.onboarding.presentation.activity.ActivityScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.age.AgeScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.gender.GenderScreen
+import ca.enzeroment.clone.calorytracker.onboarding.presentation.goal.GoalScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.height.HeightScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.weight.WeightScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.welcome.WelcomeScreen
@@ -59,6 +61,12 @@ class MainActivity : ComponentActivity() {
                                 scaffoldState = scaffoldState,
                                 onNavigate = navController::navigate
                             )
+                        }
+                        composable(Route.ACTIVITY){
+                            ActivityScreen(onNavigate = navController::navigate)
+                        }
+                        composable(Route.GOAL){
+                            GoalScreen(onNavigate = navController::navigate)
                         }
                     }
                 }

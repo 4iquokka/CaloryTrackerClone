@@ -14,6 +14,8 @@ import ca.enzeroment.clone.calorytracker.core.navigation.Route
 import ca.enzeroment.clone.calorytracker.navigation.navigate
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.age.AgeScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.gender.GenderScreen
+import ca.enzeroment.clone.calorytracker.onboarding.presentation.height.HeightScreen
+import ca.enzeroment.clone.calorytracker.onboarding.presentation.weight.WeightScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.welcome.WelcomeScreen
 import ca.enzeroment.clone.calorytracker.ui.theme.CaloryTrackerCloneTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,6 +47,18 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(Route.GENDER) {
                             GenderScreen(onNavigate = navController::navigate)
+                        }
+                        composable(Route.HEIGHT) {
+                            HeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
+                        }
+                        composable(Route.WEIGHT) {
+                            WeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                     }
                 }

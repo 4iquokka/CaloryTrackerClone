@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ca.enzeroment.clone.calorytracker.R
+import ca.enzeroment.clone.calorytracker.core.R
 import ca.enzeroment.clone.calorytracker.core.domain.preferences.Preferences
 import ca.enzeroment.clone.calorytracker.core.domain.usecase.FilterOutDigits
 import ca.enzeroment.clone.calorytracker.core.navigation.Route

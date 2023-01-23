@@ -1,7 +1,5 @@
 package ca.enzeroment.clone.calorytracker.core.domain.model
 
-import android.util.FloatMath
-
 data class UserInfo(
     val gender: Gender,
     val age : Int,

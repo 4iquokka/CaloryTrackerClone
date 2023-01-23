@@ -6,7 +6,6 @@ plugins {
 }
 
 android {
-    namespace = ProjectConfig.appId
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {

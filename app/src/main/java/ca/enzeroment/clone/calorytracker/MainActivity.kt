@@ -17,6 +17,7 @@ import ca.enzeroment.clone.calorytracker.onboarding.presentation.age.AgeScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.gender.GenderScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.goal.GoalScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.height.HeightScreen
+import ca.enzeroment.clone.calorytracker.onboarding.presentation.nutrients.NutrientGoalScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.weight.WeightScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.welcome.WelcomeScreen
 import ca.enzeroment.clone.calorytracker.ui.theme.CaloryTrackerCloneTheme
@@ -62,11 +63,17 @@ class MainActivity : ComponentActivity() {
                                 onNavigate = navController::navigate
                             )
                         }
-                        composable(Route.ACTIVITY){
+                        composable(Route.ACTIVITY) {
                             ActivityScreen(onNavigate = navController::navigate)
                         }
-                        composable(Route.GOAL){
+                        composable(Route.GOAL) {
                             GoalScreen(onNavigate = navController::navigate)
+                        }
+                        composable(Route.NUTRIENT_GOAL) {
+                            NutrientGoalScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                     }
                 }

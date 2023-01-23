@@ -9,8 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import ca.enzeroment.clone.calorytracker.R
+import ca.enzeroment.clone.calorytracker.core.R
 import ca.enzeroment.clone.calorytracker.core.navigation.Route
 import ca.enzeroment.clone.calorytracker.core.ui.LocalSpacing
 import ca.enzeroment.clone.calorytracker.core.util.UiEvent

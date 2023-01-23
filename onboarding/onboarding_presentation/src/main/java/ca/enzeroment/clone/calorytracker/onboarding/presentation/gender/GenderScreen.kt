@@ -11,13 +11,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
-import ca.enzeroment.clone.calorytracker.R
+import ca.enzeroment.clone.calorytracker.core.R
 import ca.enzeroment.clone.calorytracker.core.domain.model.Gender
 import ca.enzeroment.clone.calorytracker.core.ui.LocalSpacing
 import ca.enzeroment.clone.calorytracker.core.util.UiEvent
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.component.ActionButton
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.component.SelectableButton
-import kotlinx.coroutines.flow.collect
 
 @Composable
 fun GenderScreen(

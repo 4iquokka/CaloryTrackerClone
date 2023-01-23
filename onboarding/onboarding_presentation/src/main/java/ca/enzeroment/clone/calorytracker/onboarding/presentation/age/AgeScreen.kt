@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import ca.enzeroment.clone.calorytracker.R
+import ca.enzeroment.clone.calorytracker.core.R
 import ca.enzeroment.clone.calorytracker.core.ui.LocalSpacing
 import ca.enzeroment.clone.calorytracker.core.util.UiEvent
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.component.ActionButton

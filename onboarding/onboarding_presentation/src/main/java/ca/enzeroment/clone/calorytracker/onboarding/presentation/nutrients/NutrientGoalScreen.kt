@@ -1,4 +1,4 @@
-package ca.enzeroment.clone.calorytracker.onboarding.presentation.weight
+package ca.enzeroment.clone.calorytracker.onboarding.presentation.nutrients
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -18,25 +18,22 @@ import ca.enzeroment.clone.calorytracker.onboarding.presentation.component.Actio
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.component.UnitTextField
 
 @Composable
-fun WeightScreen(
+fun NutrientGoalScreen(
     scaffoldState: ScaffoldState,
-    onNavigate : (UiEvent.Navigate) -> Unit,
-    viewModel : WeightViewModel = hiltViewModel()
+    onNavigate: (UiEvent.Navigate) -> Unit,
+    viewModel: NutrientViewModel = hiltViewModel()
 ) {
-
     val spacing = LocalSpacing.current
     val context = LocalContext.current
 
-    LaunchedEffect(key1 = true){
-        viewModel.uiEvent.collect{ event ->
-            when(event){
-                is UiEvent.Navigate ->{
+    LaunchedEffect(key1 = true) {
+        viewModel.uiEvent.collect { event ->
+            when (event) {
+                is UiEvent.Navigate -> {
                     onNavigate(event)
                 }
                 is UiEvent.ShowSnackbar -> {
-                    scaffoldState.snackbarHostState.showSnackbar(
-                        event.message.asString(context)
-                    )
+                    scaffoldState.snackbarHostState.showSnackbar(event.message.asString(context))
                 }
                 else -> Unit
             }
@@ -54,21 +51,40 @@ fun WeightScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = stringResource(id = R.string.whats_your_weight),
+                text = stringResource(id = R.string.what_are_your_nutrient_goals),
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             UnitTextField(
-                value = viewModel.weight,
-                onValueChange = viewModel::onWeightEnter,
-                unit = stringResource(id = R.string.years)
+                value = viewModel.state.carbRatio,
+                onValueChange = {
+                    viewModel.onEvent(NutrientGoalEvent.OnCarbRatioEnter(it))
+                },
+                unit = stringResource(id = R.string.percent_carbs)
+            )
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+            UnitTextField(
+                value = viewModel.state.proteinRatio,
+                onValueChange = {
+                    viewModel.onEvent(NutrientGoalEvent.OnProteinRatioEnter(it))
+                },
+                unit = stringResource(id = R.string.percent_proteins)
+            )
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+            UnitTextField(
+                value = viewModel.state.fatRatio,
+                onValueChange = {
+                    viewModel.onEvent(NutrientGoalEvent.OnFatRatioEnter(it))
+                },
+                unit = stringResource(id = R.string.percent_fats)
             )
         }
         ActionButton(
-            text = stringResource(id = R.string.next), onClick = { viewModel.onNextClick() },
+            text = stringResource(id = R.string.next),
+            onClick = {
+                viewModel.onEvent(NutrientGoalEvent.OnNextClick)
+            },
             modifier = Modifier.align(Alignment.BottomEnd)
         )
     }
-
-
 }

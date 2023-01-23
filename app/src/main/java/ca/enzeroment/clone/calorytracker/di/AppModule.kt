@@ -1,8 +1,10 @@
 package ca.enzeroment.clone.calorytracker.di
 
 import android.app.Application
+import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
+import ca.enzeroment.clone.calorytracker.CaloryTrackerApp
 import ca.enzeroment.clone.calorytracker.core.data.preferences.DefaultPreferences
 import ca.enzeroment.clone.calorytracker.core.domain.preferences.Preferences
 import ca.enzeroment.clone.calorytracker.core.domain.usecase.FilterOutDigits
@@ -23,9 +25,9 @@ object AppModule {
     @Provides
     @Singleton
     fun provideSharedPreferences(
-        @ApplicationContext application: Application
+        @ApplicationContext app: Context
     ) : SharedPreferences{
-        return application.getSharedPreferences("shared_pref", MODE_PRIVATE)
+        return app.getSharedPreferences("shared_pref", MODE_PRIVATE)
     }
 
     @Provides

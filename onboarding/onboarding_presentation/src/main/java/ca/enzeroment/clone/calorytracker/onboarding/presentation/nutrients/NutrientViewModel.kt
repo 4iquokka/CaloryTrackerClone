@@ -9,7 +9,7 @@ import ca.enzeroment.clone.calorytracker.core.domain.preferences.Preferences
 import ca.enzeroment.clone.calorytracker.core.domain.usecase.FilterOutDigits
 import ca.enzeroment.clone.calorytracker.core.navigation.Route
 import ca.enzeroment.clone.calorytracker.core.util.UiEvent
-import ca.enzeroment.clone.calorytracker.onboarding.domain.usecase.ValidateNutrients
+import ca.enzeroment.clone.calorytracker.onboarding.domain.usecases.ValidateNutrients
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow

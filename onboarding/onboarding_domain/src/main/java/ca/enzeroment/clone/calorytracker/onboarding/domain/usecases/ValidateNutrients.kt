@@ -1,4 +1,4 @@
-package ca.enzeroment.clone.calorytracker.onboarding.domain.usecase
+package ca.enzeroment.clone.calorytracker.onboarding.domain.usecases
 
 
 import ca.enzeroment.clone.calorytracker.core.util.UiText

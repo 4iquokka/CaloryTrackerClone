@@ -1,6 +1,6 @@
 package ca.enzeroment.clone.calorytracker.onboarding.domain.di
 
-import ca.enzeroment.clone.calorytracker.onboarding.domain.usecase.ValidateNutrients
+import ca.enzeroment.clone.calorytracker.onboarding.domain.usecases.ValidateNutrients
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

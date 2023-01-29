@@ -1,4 +1,4 @@
-package ca.enzeroment.clone.calorytracker.ui.theme
+package ca.enzeroment.clone.calorytracker.core.ui
 
 import androidx.compose.ui.graphics.Color
 

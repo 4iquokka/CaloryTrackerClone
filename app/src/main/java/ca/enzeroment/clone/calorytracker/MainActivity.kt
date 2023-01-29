@@ -20,6 +20,7 @@ import ca.enzeroment.clone.calorytracker.onboarding.presentation.height.HeightSc
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.nutrients.NutrientGoalScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.weight.WeightScreen
 import ca.enzeroment.clone.calorytracker.onboarding.presentation.welcome.WelcomeScreen
+import ca.enzeroment.clone.calorytracker.tracker.presentation.overview.TrackerOverviewScreen
 import ca.enzeroment.clone.calorytracker.ui.theme.CaloryTrackerCloneTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -72,6 +73,11 @@ class MainActivity : ComponentActivity() {
                         composable(Route.NUTRIENT_GOAL) {
                             NutrientGoalScreen(
                                 scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
+                        }
+                        composable(Route.TRACKER_OVERVIEW){
+                            TrackerOverviewScreen(
                                 onNavigate = navController::navigate
                             )
                         }
